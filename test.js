@@ -282,7 +282,7 @@ describe('fake library app', function () {
           });
         });
 
-        xit('GET all', function (done) {
+        it('GET all', function (done) {
           agent
           .get('/api/books/' + chapterBook.id + '/chapters')
           .expect(200)
@@ -294,7 +294,7 @@ describe('fake library app', function () {
           });
         });
 
-        xit('POST one', function (done) {
+        it('POST one', function (done) {
           // take a look at the Sequelize docs for adding and/or creating associations
           // it is helpful here!
           agent
@@ -329,7 +329,7 @@ describe('fake library app', function () {
           });
         });
 
-        xit('GET one', function (done) {
+        it('GET one', function (done) {
           var chapId = addedChapter.id;
           agent
           .get('/api/books/' + chapterBook.id + '/chapters/' + chapId)
@@ -341,21 +341,21 @@ describe('fake library app', function () {
           });
         });
 
-        xit('GET one that doesn\'t exist', function (done) {
+        it('GET one that doesn\'t exist', function (done) {
           agent
           .get('/api/books/' + chapterBook.id + '/chapters/24680')
           .expect(404)
           .end(done);
         });
 
-        xit('GET one using invalid ID', function (done) {
+        it('GET one using invalid ID', function (done) {
           agent
           .get('/api/books/' + chapterBook.id + '/chapters/clearlynotanid')
           .expect(500)
           .end(done);
         });
 
-        xit('PUT one', function (done) {
+        it('PUT one', function (done) {
           var chapId = addedChapter.id;
           agent
           .put('/api/books/' + chapterBook.id + '/chapters/' + chapId)
@@ -376,7 +376,7 @@ describe('fake library app', function () {
           });
         });
 
-        xit('PUT one that doesn\'t exist', function (done) {
+        it('PUT one that doesn\'t exist', function (done) {
           agent
           .put('/api/books/' + chapterBook.id + '/chapters/98765')
           .send({
@@ -386,7 +386,7 @@ describe('fake library app', function () {
           .end(done);
         });
 
-        xit('PUT one using invalid ID', function (done) {
+        it('PUT one using invalid ID', function (done) {
           agent
           .put('/api/books/' + chapterBook.id + '/chapters/clearlynotanid')
           .send({
@@ -396,7 +396,7 @@ describe('fake library app', function () {
           .end(done);
         });
 
-        xit('DELETE one', function (done) {
+        it('DELETE one', function (done) {
           // take a look at the Sequelize docs for removing associations
           // it is helpful here!
           var chapId = addedChapter.id;
@@ -423,14 +423,14 @@ describe('fake library app', function () {
           });
         });
 
-        xit('DELETE one that doesn\'t exist', function (done) {
+        it('DELETE one that doesn\'t exist', function (done) {
           agent
           .delete('/api/books/' + chapterBook.id + '/chapters/12345')
           .expect(404)
           .end(done);
         });
 
-        xit('DELETE one using invalid ID', function (done) {
+        it('DELETE one using invalid ID', function (done) {
           agent
           .delete('/api/books/' + chapterBook.id + '/chapters/clearlynotanid')
           .expect(500)
