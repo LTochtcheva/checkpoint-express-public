@@ -445,7 +445,7 @@ describe('fake library app', function () {
       // remember express sessions?
       // https://github.com/expressjs/session
 
-      xit('counts a client\'s visits to it', function (done) {
+      it('counts a client\'s visits to it', function (done) {
         // should originally send back zero
         // but should increment, thus returning one the next time around
         var clientA = agent;
@@ -467,7 +467,7 @@ describe('fake library app', function () {
       });
 
 
-      xit('distinguises between clients', function (done) {
+      it('distinguises between clients', function (done) {
         // should be zero again for this client!
         var clientB = supertest.agent(app);
         clientB
